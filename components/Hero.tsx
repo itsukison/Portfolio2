@@ -21,16 +21,16 @@ export const Hero: React.FC = () => {
     offset: ["start start", "end start"]
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const scrollY = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     const { clientX, clientY } = e;
     const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth) - 0.5;
-    const y = (clientY / innerHeight) - 0.5;
-    mouseX.set(x);
-    mouseY.set(y);
+    const mouseNormalizedX = (clientX / innerWidth) - 0.5;
+    const mouseNormalizedY = (clientY / innerHeight) - 0.5;
+    mouseX.set(mouseNormalizedX);
+    mouseY.set(mouseNormalizedY);
   };
 
   // Interactive ASCII Eye Logic logic removed
@@ -62,7 +62,7 @@ export const Hero: React.FC = () => {
 
       {/* Main Center Piece */}
       <motion.div
-        style={{ y, opacity }}
+        style={{ y: scrollY, opacity }}
         className="relative mt-14 md:mt-0 z-20 mb-10 md:mb-8 transition-all duration-300 w-[70vw] md:w-[320px]"
       >
         <div className="p-0 bg-transparent w-full overflow-hidden relative">

@@ -39,13 +39,13 @@ export const Hero: React.FC = () => {
     <section
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-[100dvh] pt-20 flex flex-col justify-center items-center overflow-hidden"
+      className="relative h-[100dvh] md:min-h-[100dvh] pt-0 md:pt-20 flex flex-col justify-center items-center overflow-hidden"
     >
 
       {/* Floating Elements with Parallax */}
       <motion.div
         style={{ x: moveX1, y: moveY1 }}
-        className="absolute top-[20%] left-[10%] md:left-[20%] font-mono text-xs md:text-sm rotate-[-12deg] z-0 pointer-events-none mix-blend-difference"
+        className="absolute top-[15%] left-[10%] md:top-[20%] md:left-[20%] font-mono text-xs md:text-sm rotate-[-12deg] z-0 pointer-events-none mix-blend-difference opacity-60 md:opacity-100"
       >
         <p>LOGIC</p>
         <p>CAN</p>
@@ -54,7 +54,7 @@ export const Hero: React.FC = () => {
 
       <motion.div
         style={{ x: moveX2, y: moveY2 }}
-        className="absolute bottom-[25%] right-[10%] md:right-[20%] font-mono text-xs md:text-sm rotate-[12deg] z-0 pointer-events-none mix-blend-difference"
+        className="absolute bottom-[20%] right-[10%] md:bottom-[25%] md:right-[20%] font-mono mt-12 md:mt-0 text-xs md:text-sm rotate-[12deg] z-0 pointer-events-none mix-blend-difference opacity-60 md:opacity-100"
       >
         <p>TOKYO</p>
         <p>NOW</p>
@@ -63,7 +63,7 @@ export const Hero: React.FC = () => {
       {/* Main Center Piece */}
       <motion.div
         style={{ y, opacity }}
-        className="relative z-20 mb-8 transition-all duration-300 w-[60vw] md:w-[320px]"
+        className="relative mt-14 md:mt-0 z-20 mb-10 md:mb-8 transition-all duration-300 w-[70vw] md:w-[320px]"
       >
         <div className="p-0 bg-transparent w-full overflow-hidden relative">
           <img
@@ -75,12 +75,12 @@ export const Hero: React.FC = () => {
       </motion.div>
 
       {/* Big Title - Scaled to fit */}
-      <div className="relative z-10 text-center mix-blend-multiply select-none">
+      <div className="relative z-10 text-center mix-blend-multiply select-none flex flex-col items-center">
         <motion.h2
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="font-serif text-[8vw] md:text-[6vw] leading-[0.8] tracking-tight"
+          className="font-serif text-[13vw] md:text-[6vw] leading-[0.9] md:leading-[0.8] tracking-tight"
         >
           Aesthetics &
         </motion.h2>
@@ -88,7 +88,7 @@ export const Hero: React.FC = () => {
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="font-serif text-[8vw] md:text-[6vw] leading-[0.8] tracking-tight italic"
+          className="font-serif text-[13vw] md:text-[6vw] leading-[0.9] md:leading-[0.8] tracking-tight italic"
         >
           Algorithms.
         </motion.h2>
@@ -98,7 +98,7 @@ export const Hero: React.FC = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="mt-8 md:mt-12 max-w-sm text-center px-6 font-mono text-xs leading-relaxed"
+        className="mt-6 md:mt-12 max-w-[80%] md:max-w-sm text-center px-0 md:px-6 font-mono text-[10px] md:text-xs leading-relaxed"
       >
         <p>
           Itsuki Son — Creative engineer based in Tokyo.
@@ -109,7 +109,7 @@ export const Hero: React.FC = () => {
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ delay: 1, type: "spring" }}
-        className="mt-8"
+        className="mt-8 md:mt-8"
       >
         <a href="#contact" className="group relative inline-flex items-center justify-center px-6 py-2 bg-black text-white font-mono text-xs uppercase overflow-hidden rounded-full hover:bg-swiss-red transition-colors duration-300">
           <span className="relative z-10">Initialize Contact</span>

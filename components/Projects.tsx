@@ -1,55 +1,98 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
-import { Project } from '../types';
 
-const projects: Project[] = [
+interface ProjectData {
+  id: number;
+  name: string;
+  title: string;
+  description: string;
+  year: string;
+  url: string;
+  images: string[];
+  tags: string[];
+}
+
+const projects: ProjectData[] = [
   {
     id: 1,
-    client: "Prospect Work",
-    title: "Branding Digital Design",
-    description: "A concept rebranding created for BRET a cultural space located in the heart of Sloterdijk, Amsterdam.",
-    year: "2024",
-    imageUrl: "https://picsum.photos/1600/900?random=1",
-    tags: ["Branding", "Web"]
+    name: "Hearsay",
+    title: "Social Network Mobile App",
+    description: "The exclusive social network that ends at 50 feet. No influencers. Just the chaos around you.",
+    year: "2025",
+    url: "https://www.hearsay.ink/",
+    images: ["/hearsay1.png", "/hearsay2.png", "/hearsay3.png", "/hearsay4.png"],
+    tags: ["Social", "Mobile", "React Native"]
   },
   {
     id: 2,
-    client: "Aurora Halal",
-    title: "Event Identity",
-    description: "Visual identity and web experience for the underground electronic music festival.",
-    year: "2023",
-    imageUrl: "https://picsum.photos/1600/900?random=2",
-    tags: ["Identity", "Dev"]
+    name: "Flowly",
+    title: "CRM Lead Management",
+    description: "Modern CRM solution designed to automate data enrichment and lead management.",
+    year: "2025",
+    url: "https://crm-five-lyart.vercel.app/",
+    images: ["/flowly.png", "/flowly2.png", "/flowly3.png", "/flowly4.png"],
+    tags: ["CRM", "Web", "Next.js"]
   },
   {
     id: 3,
-    client: "Daycare",
-    title: "E-commerce Platform",
-    description: "Full stack Shopify headless implementation for a modern skincare brand.",
-    year: "2023",
-    imageUrl: "https://picsum.photos/1600/900?random=3",
-    tags: ["Shopify", "React"]
+    name: "Cueme",
+    title: "Meeting assistant AI agent",
+    description: "A meeting assistant AI agent that provides realtime insights and analysis for you.",
+    year: "2024",
+    url: "https://www.cueme.ink/",
+    images: ["/cueme1.png", "/cueme2.png", "/cueme3.png"],
+    tags: ["AI", "Web", "Next.js"]
   }
 ];
 
 export const Projects: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [currentImageIndices, setCurrentImageIndices] = useState<Record<number, number>>(
+    projects.reduce((acc, project) => ({ ...acc, [project.id]: 0 }), {})
+  );
+
+  // Auto-rotate images for each project (pauses on hover)
+  useEffect(() => {
+    const intervals: NodeJS.Timeout[] = [];
+
+    projects.forEach((project) => {
+      const interval = setInterval(() => {
+        // Only rotate if not hovering over this project
+        if (hoveredProject !== project.id) {
+          setCurrentImageIndices((prev) => ({
+            ...prev,
+            [project.id]: (prev[project.id] + 1) % project.images.length
+          }));
+        }
+      }, 5000); // Change image every 5 seconds
+
+      intervals.push(interval);
+    });
+
+    return () => {
+      intervals.forEach(clearInterval);
+    };
+  }, [hoveredProject]);
+
+  const handleProjectClick = (url: string) => {
+    window.open(url, '_blank', 'noopener,noreferrer');
+  };
 
   return (
-    <section className="bg-off-white py-20 min-h-screen">
+    <section className="bg-off-white pb-48 md:pb-32 pt-20 min-h-0 md:min-h-screen mt-0 md:mt-12">
       <div className="container mx-auto px-6">
-        
+
         {/* Header Row */}
         <div className="grid grid-cols-12 gap-4 mb-8 font-mono text-xs uppercase opacity-50 border-b border-black/10 pb-2">
-          <div className="col-span-12 md:col-span-4">Client</div>
-          <div className="col-span-12 md:col-span-4">Discipline</div>
+          <div className="col-span-12 md:col-span-4">Project</div>
+          <div className="col-span-12 md:col-span-4">Description</div>
           <div className="col-span-12 md:col-span-4 text-right">Year</div>
         </div>
 
-        <div className="space-y-32">
+        <div className="space-y-16 md:space-y-32">
           {projects.map((project) => (
-            <motion.div 
+            <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -57,13 +100,14 @@ export const Projects: React.FC = () => {
               transition={{ duration: 0.6 }}
               onMouseEnter={() => setHoveredProject(project.id)}
               onMouseLeave={() => setHoveredProject(null)}
-              className="group cursor-none" // Using custom cursor logic globally or locally
+              onClick={() => handleProjectClick(project.url)}
+              className="group cursor-pointer"
             >
               {/* Text Info */}
               <div className="grid grid-cols-12 gap-4 mb-6 relative z-10">
                 <div className="col-span-12 md:col-span-4">
                   <h3 className="font-serif text-3xl md:text-5xl mb-2 group-hover:italic transition-all duration-300">
-                    {project.client}
+                    {project.name}
                   </h3>
                 </div>
                 <div className="col-span-12 md:col-span-4">
@@ -73,27 +117,69 @@ export const Projects: React.FC = () => {
                   <p className="font-mono text-xs mt-4 max-w-xs opacity-60">
                     {project.description}
                   </p>
+                  <div className="flex gap-2 mt-3">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-xs px-2 py-1 bg-black/5 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
                 <div className="col-span-12 md:col-span-4 text-right">
-                   <span className="font-mono text-xl">{project.year}</span>
+                  <span className="font-mono text-xl">{project.year}</span>
                 </div>
               </div>
 
-              {/* Image */}
-              <div className="relative overflow-hidden w-full aspect-video bg-gray-200">
-                <motion.div
-                  className="w-full h-full"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
-                >
-                  <img 
-                    src={project.imageUrl} 
-                    alt={project.title}
-                    className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
-                </motion.div>
-                
-                {/* Overlay ASCII/Text on Hover */}
+              {/* Image Carousel */}
+              <div className="relative overflow-hidden w-full max-w-5xl mx-auto bg-gray-100 rounded-lg p-4 md:p-6">
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={`${project.id}-${currentImageIndices[project.id]}`}
+                    initial={{ opacity: 0, scale: 1.1 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.95 }}
+                    transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
+                    className="w-full h-full"
+                  >
+                    <motion.div
+                      className="w-full h-full max-w-5xl mx-auto"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.7, ease: [0.33, 1, 0.68, 1] }}
+                    >
+                      <img
+                        src={project.images[currentImageIndices[project.id]]}
+                        alt={`${project.name} - View ${currentImageIndices[project.id] + 1}`}
+                        className="w-full h-auto object-contain transition-all duration-700 rounded-lg"
+                      />
+                    </motion.div>
+                  </motion.div>
+                </AnimatePresence>
+
+                {/* Image Indicators */}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+                  {project.images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setCurrentImageIndices((prev) => ({
+                          ...prev,
+                          [project.id]: index
+                        }));
+                      }}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${currentImageIndices[project.id] === index
+                        ? 'bg-white w-6'
+                        : 'bg-white/50 hover:bg-white/75'
+                        }`}
+                      aria-label={`View image ${index + 1}`}
+                    />
+                  ))}
+                </div>
+
+                {/* Overlay with Arrow on Hover */}
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center pointer-events-none">
                   <div className="bg-white rounded-full p-4 opacity-0 group-hover:opacity-100 transform scale-0 group-hover:scale-100 transition-all duration-300">
                     <ArrowUpRight className="w-6 h-6" />

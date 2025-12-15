@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface ProjectData {
   id: number;
@@ -13,12 +14,9 @@ interface ProjectData {
   tags: string[];
 }
 
-const projects: ProjectData[] = [
+const baseProjects = [
   {
     id: 1,
-    name: "Hearsay",
-    title: "Social Network Mobile App",
-    description: "The exclusive social network that ends at 50 feet. No influencers. Just the chaos around you.",
     year: "2025",
     url: "https://www.hearsay.ink/",
     images: ["/hearsay1.png", "/hearsay2.png", "/hearsay3.png", "/hearsay4.png"],
@@ -26,9 +24,6 @@ const projects: ProjectData[] = [
   },
   {
     id: 2,
-    name: "Flowly",
-    title: "CRM Lead Management",
-    description: "Modern CRM solution designed to automate data enrichment and lead management.",
     year: "2025",
     url: "https://crm-five-lyart.vercel.app/",
     images: ["/flowly.png", "/flowly2.png", "/flowly3.png", "/flowly4.png"],
@@ -36,9 +31,6 @@ const projects: ProjectData[] = [
   },
   {
     id: 3,
-    name: "Cueme",
-    title: "Meeting assistant AI agent",
-    description: "A meeting assistant AI agent that provides realtime insights and analysis for you.",
     year: "2024",
     url: "https://www.cueme.ink/",
     images: ["/cueme1.png", "/cueme2.png", "/cueme3.png"],
@@ -48,6 +40,16 @@ const projects: ProjectData[] = [
 
 export const Projects: React.FC = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const { t } = useLanguage();
+
+  // Merge base project data with translations
+  const projects: ProjectData[] = baseProjects.map((project, index) => ({
+    ...project,
+    name: t.projects.items[index]?.name || '',
+    title: t.projects.items[index]?.title || '',
+    description: t.projects.items[index]?.description || '',
+  }));
+
   const [currentImageIndices, setCurrentImageIndices] = useState<Record<number, number>>(
     projects.reduce((acc, project) => ({ ...acc, [project.id]: 0 }), {})
   );
@@ -85,9 +87,9 @@ export const Projects: React.FC = () => {
 
         {/* Header Row */}
         <div className="grid grid-cols-12 gap-4 mb-8 font-mono text-xs uppercase opacity-50 border-b border-black/10 pb-2">
-          <div className="col-span-12 md:col-span-4">Project</div>
-          <div className="col-span-12 md:col-span-4">Description</div>
-          <div className="col-span-12 md:col-span-4 text-right">Year</div>
+          <div className="col-span-12 md:col-span-4">{t.projects.headerProject}</div>
+          <div className="col-span-12 md:col-span-4">{t.projects.headerDescription}</div>
+          <div className="col-span-12 md:col-span-4 text-right">{t.projects.headerYear}</div>
         </div>
 
         <div className="space-y-16 md:space-y-32">

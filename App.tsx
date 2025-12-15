@@ -5,22 +5,25 @@ import { Philosophy } from './components/Philosophy';
 import { Projects } from './components/Projects';
 import { About } from './components/About';
 import { Footer } from './components/Footer';
+import { LanguageProvider } from './context/LanguageContext';
 
 
 const App: React.FC = () => {
   return (
-    <div className="relative w-full overflow-hidden">
-      <Header />
+    <LanguageProvider>
+      <div className="relative w-full overflow-hidden">
+        <Header />
 
-      <main className="relative z-10">
-        <Hero />
-        <Philosophy />
-        <Projects />
-        <About />
-      </main>
+        <main className="relative z-10">
+          <Hero />
+          <Philosophy />
+          <Projects />
+          <About />
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </LanguageProvider>
   );
 };
 

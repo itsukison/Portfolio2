@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 export const Header: React.FC = () => {
   const [time, setTime] = useState(new Date());
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ja' : 'en');
+  };
 
   return (
     <motion.header
@@ -18,14 +24,27 @@ export const Header: React.FC = () => {
           ITSUKI.WORKS
         </motion.h1>
         <div className="hidden md:block text-xs font-mono uppercase opacity-60">
-          <p>Based in Tokyo</p>
-          <p>VAT JP88920192</p>
+          <p>{t.header.location}</p>
+          <p>{t.header.vat}</p>
         </div>
       </div>
 
-      <div className="text-right font-mono text-xs uppercase">
-        <p>M-F 10-19</p>
-        <p suppressHydrationWarning>{time.toLocaleTimeString('en-US', { hour12: false })}</p>
+      <div className="flex items-center gap-6">
+        {/* Language Toggle Button */}
+        <button
+          onClick={toggleLanguage}
+          className="relative flex items-center gap-1 px-3 py-1.5 border border-black/20 rounded-full font-mono text-xs uppercase hover:bg-black hover:text-white transition-colors duration-200"
+          aria-label="Toggle language"
+        >
+          <span className={`transition-opacity duration-200 ${language === 'en' ? 'opacity-100' : 'opacity-40'}`}>EN</span>
+          <span className="text-black/30">/</span>
+          <span className={`transition-opacity duration-200 ${language === 'ja' ? 'opacity-100' : 'opacity-40'}`}>JP</span>
+        </button>
+
+        <div className="text-right font-mono text-xs uppercase">
+          <p>{t.header.hours}</p>
+          <p suppressHydrationWarning>{time.toLocaleTimeString('en-US', { hour12: false })}</p>
+        </div>
       </div>
     </motion.header>
   );

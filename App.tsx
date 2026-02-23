@@ -4,6 +4,7 @@ import { Hero } from './components/Hero';
 import { Philosophy } from './components/Philosophy';
 import { Projects } from './components/Projects';
 import { About } from './components/About';
+import { Identity } from './components/Identity';
 import { Footer } from './components/Footer';
 import { LanguageProvider } from './context/LanguageContext';
 
@@ -19,6 +20,7 @@ const App: React.FC = () => {
           <Philosophy />
           <Projects />
           <About />
+          <Identity />
         </main>
 
         <Footer />

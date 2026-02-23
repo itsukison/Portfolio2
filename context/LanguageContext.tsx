@@ -40,6 +40,14 @@ interface Translations {
         cta: string;
         ctaLink: string;
     };
+    quote: {
+        sartre: string;
+        author: string;
+        reflection1: string;
+        reflection2: string;
+        reflection3: string;
+        reflection4: string;
+    };
     footer: {
         name: string;
         links: string[];
@@ -67,14 +75,14 @@ const translations: Record<Language, Translations> = {
             cta: 'Initialize Contact',
         },
         philosophy: {
-            headingDesktop: 'I create scalable systems and natural interfaces that unify design, engineering, and user experience.',
-            headingMobile: 'I create scalable systems that unify design and experience.',
-            headingHighlight: 'scalable',
+            headingDesktop: "Most AI products are built for people who know how to use AI. I build for the ones who don't.",
+            headingMobile: "I build AI products for the ones who don't already know how to use them.",
+            headingHighlight: "ones who don't",
             label: '(Approach)',
-            mainText: 'My work is the architecture behind how products move.',
-            paragraph1: "I'm obsessed with the \"feel\" of a digital product—the way a scroll feels snappy or a transition provides just enough feedback to keep you curious.",
-            paragraph2: "My work unifies design and engineering to create that specific kind of excitement that makes people want to keep exploring. By grounding everything in clean SQL and Supabase backends, I ensure that the beauty isn't just skin deep, but built on a foundation that can handle growth.",
-            paragraphMobile: "I'm obsessed with the \"feel\" of a product. My work unifies design and engineering to create experiences that are both beautiful and built on a solid foundation.",
+            mainText: 'The raw capability is already out there.',
+            paragraph1: "I build for the person who would benefit most from a smarter tool but would never think to search for one. What is missing is the interface that takes this complex technology and makes it feel like it was always meant for you.",
+            paragraph2: "That gap between the user and the product is almost never technical. It is a design problem, and it is the most important one of the decade. By focusing on how natural an interaction feels, I try to turn complex systems into accessible tools for everyday people.",
+            paragraphMobile: "I build for the person who would benefit most from a smarter tool but wouldn't search for one. The gap isn't technical. It's a design problem, and the most important one of the decade.",
         },
         projects: {
             headerProject: 'Project',
@@ -106,11 +114,19 @@ const translations: Record<Language, Translations> = {
         about: {
             title: 'About Me',
             label: '(Design + Engineering)',
-            textDesktop: "A developer and designer based in Tokyo. I spend my days bridging the gap between what a product looks like and how it actually lives in the hands of a user. Whether I'm tinkering with Framer for animations or Vite for performance, I'm always searching for that \"aha!\" moment where code becomes an experience.",
-            textMobile: 'A developer and designer based in Tokyo, bridging the gap between design and code to create experiences that feel alive.',
-            tagline: 'Solutions shaped by structure and restraint.',
+            textDesktop: "I'm Itsuki Son, a design engineer based in Tokyo. I let layout, proportion, and negative space do the guiding so a first-time user moves through a product like someone moving through a well-designed room. Unhurried. Like they've been here before. I'm drawn to work where technology changes someone's actual circumstances. Projects like bitchat, which gives political voice to the suppressed, or tools that do what decades of microfinance policy couldn't.",
+            textMobile: "I'm Itsuki Son, a design engineer based in Tokyo. I let layout and negative space do the guiding so users move through a product unhurried. I'm drawn to work where technology changes actual circumstances.",
+            tagline: "If you're thinking about a startup at that intersection, I'd love to talk.",
             cta: "Don't hesitate to",
             ctaLink: 'get in touch',
+        },
+        quote: {
+            sartre: "\"I have led a toothless life, he thought. A toothless life. I have never bitten into anything. I was waiting. I was reserving myself for later on — and I have just noticed that my teeth have gone.\"",
+            author: "— Jean-Paul Sartre",
+            reflection1: "I think about this passage more than I'd like to admit.",
+            reflection2: "There is a version of a life that is spent in careful preparation. Accumulating the right credentials, waiting for the right moment, building toward something that never quite arrives because the waiting becomes the habit.",
+            reflection3: "I don't want that life. I want to be someone who bites. Who takes on problems that are too large and treats the present moment as the only one that's actually available.",
+            reflection4: "Becoming a better, kinder, and more honest person is not a background goal for me. It's the whole point. The products are how I practice.",
         },
         footer: {
             name: 'Itsuki Son',
@@ -137,14 +153,14 @@ const translations: Record<Language, Translations> = {
             cta: 'お問い合わせ',
         },
         philosophy: {
-            headingDesktop: 'デザイン・エンジニアリング・ユーザー体験を一つに繋げる、スケーラブルなシステムと自然なインターフェースを創造します。',
-            headingMobile: 'デザインと体験を融合させる、スケーラブルなシステムを構築します。',
-            headingHighlight: 'スケーラブル',
+            headingDesktop: '多くのAIプロダクトは、すでにAIの使い方を知っている人向けに作られています。私は、そうでない人のために創ります。',
+            headingMobile: '私は、AIの使い方を知らない人のためにプロダクトを創ります。',
+            headingHighlight: 'そうでない人',
             label: '(アプローチ)',
-            mainText: 'プロダクトがどう動くか - その裏側を設計するのが私の仕事です。',
-            paragraph1: 'スクロールの気持ちよさ、トランジションの絶妙なフィードバック。デジタルプロダクトの「手触り」に、私はこだわり抜きます。',
-            paragraph2: 'デザインとエンジニアリングを融合させ、「もっと触りたい」と思わせる体験を生み出す。SQLとSupabaseによる堅牢なバックエンドで、見た目だけでなく成長にも耐えうる土台を築きます。',
-            paragraphMobile: 'プロダクトの「手触り」にこだわり、デザインとエンジニアリングを融合。美しく、かつ確かな基盤の上に成り立つ体験を創ります。',
+            mainText: '技術はすでにそこにあります。',
+            paragraph1: 'より賢いツールから最大の恩恵を受けるはずなのに、それを自ら探そうとはしない人。私がデザインするのは、そんな人たちのためのプロダクトです。今欠けているのは、まるで最初から自分のために用意されていたかのように感じさせるインターフェースなのです。',
+            paragraph2: 'ユーザーとプロダクトの間にあるそのギャップは、技術的な問題であることはほとんどありません。それは根本的にデザインの問題であり、この10年で最も重要な課題です。自然な使い心地にこだわることで、複雑なシステムを日常のツールへと変えていきます。',
+            paragraphMobile: 'より賢いツールを最も必要としているのに、探そうとしない人のために創ります。そのギャップは技術ではなくデザインの問題であり、今最も重要な課題です。',
         },
         projects: {
             headerProject: 'プロジェクト',
@@ -176,11 +192,19 @@ const translations: Record<Language, Translations> = {
         about: {
             title: '自己紹介',
             label: '(デザイン + エンジニアリング)',
-            textDesktop: '東京を拠点に活動するデベロッパー兼デザイナー。プロダクトの「見た目」と「実際に使われる姿」のギャップを埋めることに日々取り組んでいます。Framerでアニメーションを調整するときも、Viteでパフォーマンスを追求するときも、コードが「体験」に変わる瞬間を常に探しています。',
-            textMobile: '東京拠点のデベロッパー兼デザイナー。デザインとコードの間を繋ぎ、生きた体験を生み出します。',
-            tagline: '構造と抑制が形づくるソリューション。',
+            textDesktop: '東京を拠点に活動するデザインエンジニア、Itsuki Sonです。レイアウト、プロポーション、そして余白による誘導を大切にしています。初めてのユーザーでも、デザインの行き届いた部屋を歩くように、焦らず、まるで以前にも来たことがあるかのようにプロダクトを使えるように。抑圧された人々に政治的な声を与えるbitchatや、何十年ものマイクロファイナンス政策が成し得なかったことを実現するツールなど、テクノロジーが人々の実際の境遇を変えるような仕事に強く惹かれます。',
+            textMobile: '東京拠点のデザインエンジニア。レイアウトと余白による誘導で、初めてのユーザーでも迷わない体験を創ります。テクノロジーが人々の実際の境遇を変えるような仕事に惹かれます。',
+            tagline: 'その交差点にあるスタートアップをお考えなら、ぜひお話ししましょう。',
             cta: 'お気軽に',
             ctaLink: 'ご連絡ください',
+        },
+        quote: {
+            sartre: "「自分は歯のない人生を送ってきた」と彼は思った。「歯の抜け落ちた人生だ。一度も何かに噛みついたことがない。ただ待っていたのだ。後になってから本気を出すつもりで自分を温存していた。そして今、すっかり歯がなくなっていることに気がついた」",
+            author: "— ジャン＝ポール・サルトル",
+            reflection1: "正直、認めたくないほどよくこの一節のことを考えます。",
+            reflection2: "念入りな準備だけで終わってしまう人生があります。正しい肩書きを集め、ふさわしい時期を待って、待つこと自体が習慣になってしまうせいで、決して辿り着かない何かを築き上げようとする人生です。",
+            reflection3: "私はそんな風には生きたくありません。「噛みつく人間」でありたいのです。自分には大きすぎる問題に立ち向かい、今この瞬間だけが本当に手に入る唯一の時間だと信じて動く人間でありたい。",
+            reflection4: "より良く、優しく、そして誠実な人間になることは、私にとってただの目標ではありません。それこそが全てなのです。そしてプロダクトメイキングは、私にとってそのための実践です。",
         },
         footer: {
             name: 'Itsuki Son',

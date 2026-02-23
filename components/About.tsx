@@ -22,16 +22,15 @@ export const About: React.FC = () => {
         {/* Column 2: Empty Spacer for Rhythm (Swiss Grid) */}
         <div className="hidden md:block w-1/4 border-r border-black/10 bg-black/5"></div>
 
-        {/* Column 3: Spacer */}
-        <div className="hidden md:block w-1/4 border-r border-black/10"></div>
+
 
         {/* Column 4: Content */}
         <div className="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center md:justify-between">
-          <div className="max-w-xl mt-12 md:mt-0">
+          <div className="max-w-2xl mt-12 md:mt-0">
             <span className="font-mono text-xs uppercase mb-4 block opacity-60">{t.about.label}</span>
 
             {/* Desktop Text */}
-            <p className="hidden md:block font-sans text-xl md:text-3xl leading-snug font-light">
+            <p className="hidden md:block font-sans text-xl md:text-[1.75rem] leading-[1.35] font-light">
               {t.about.textDesktop}
             </p>
 
@@ -40,7 +39,7 @@ export const About: React.FC = () => {
               {t.about.textMobile}
             </p>
 
-            <p className="font-sans text-xl md:text-3xl leading-snug font-light mt-8">
+            <p className="font-sans text-xl md:text-[1.75rem] leading-[1.35] font-light mt-8">
               {t.about.tagline}
             </p>
           </div>

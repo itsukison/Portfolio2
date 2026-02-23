@@ -82,6 +82,11 @@ const translations: Record<Language, Translations> = {
             headerYear: 'Year',
             items: [
                 {
+                    name: 'Chrono',
+                    title: 'The True AI Employee',
+                    description: 'Bridging context, workflows, and execution. An intelligence that understands your company\'s deepest context to delegate tasks autonomously.',
+                },
+                {
                     name: 'Hearsay',
                     title: 'Social Network Mobile App',
                     description: 'The exclusive social network that ends at 50 feet. No influencers. Just the chaos around you.',
@@ -146,6 +151,11 @@ const translations: Record<Language, Translations> = {
             headerDescription: '概要',
             headerYear: '年',
             items: [
+                {
+                    name: 'Chrono',
+                    title: '真のAI従業員',
+                    description: 'コンテキスト、ワークフロー、実行の架け橋。会社の深いコンテキストを理解し、自律的にタスクを処理するAI従業員。',
+                },
                 {
                     name: 'Hearsay',
                     title: 'SNSモバイルアプリ',

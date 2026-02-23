@@ -7,11 +7,11 @@ export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer id="contact" className="bg-deep-black text-off-white h-[100dvh] md:h-auto md:min-h-[80vh] py-12 md:py-32 relative overflow-hidden -mb-12 flex flex-col justify-center md:block">
-      <div className="container mx-auto px-6 relative z-10 h-full flex flex-col justify-between md:block">
+    <footer id="contact" className="bg-deep-black text-off-white h-[calc(100dvh-5rem)] md:h-[calc(100vh-5rem)] py-8 md:py-12 relative overflow-hidden flex flex-col justify-center">
+      <div className="container mx-auto px-6 relative z-10 h-full flex flex-col justify-between">
 
         {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:mb-24 shrink-0 order-2 md:order-1 mt-8 md:mt-0">
+        <div className="flex flex-col md:flex-row justify-between items-start shrink-0 order-2 md:order-1 mt-8 md:mt-0">
           <div>
             <h2 className="font-sans text-2xl mb-4 md:mb-8">{t.footer.name}</h2>
             <div className="flex gap-6 text-sm font-mono opacity-60">
@@ -22,10 +22,10 @@ export const Footer: React.FC = () => {
           </div>
 
           <div className="flex gap-4 mt-8 md:mt-0">
-            <a href="#" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
+            <a href="https://www.linkedin.com/in/itsuki-son-2613662a7" target="_blank" rel="noopener noreferrer" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
               <Linkedin size={18} />
             </a>
-            <a href="#" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
+            <a href="mailto:itsukison00@gmail.com" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
               <Mail size={18} />
             </a>
             <a href="#" className="w-12 h-12 border border-white/20 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition-colors">
@@ -35,13 +35,13 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Middle Section (Main Call to Action) */}
-        <div className="max-w-4xl flex-grow flex flex-col justify-center md:block md:flex-grow-0 order-1 md:order-2">
-          <p className="font-sans text-3xl md:text-6xl md:leading-tight font-light mb-8 md:mb-12">
+        <div className="max-w-4xl flex-grow flex flex-col justify-center order-1 md:order-2">
+          <p className="font-sans text-3xl md:text-6xl md:leading-tight font-light mb-8 md:mb-8">
             {t.footer.tagline}
           </p>
 
           <div className="relative inline-block group">
-            <a href="mailto:hello@itsuki.works" className="font-serif text-5xl md:text-8xl italic hover:text-white/80 transition-colors">
+            <a href="mailto:itsukison00@gmail.com" className="font-serif text-5xl md:text-8xl italic hover:text-white/80 transition-colors">
               {t.footer.cta}
               <span className="block h-1 w-full bg-white scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></span>
             </a>
@@ -50,7 +50,7 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Section */}
-        <div className="md:mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between font-mono text-xs opacity-40 uppercase shrink-0 order-3 md:order-3">
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between font-mono text-xs opacity-40 uppercase shrink-0 order-3 md:order-3">
           <p>{t.footer.copyright}</p>
           <div className="flex gap-8 mt-4 md:mt-0">
             <p>{t.footer.location}</p>

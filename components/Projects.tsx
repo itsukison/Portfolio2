@@ -16,6 +16,13 @@ interface ProjectData {
 
 const baseProjects = [
   {
+    id: 4,
+    year: "2026",
+    url: "https://chrono-zeta-seven.vercel.app/",
+    images: ["/chrono1.png", "/chrono2.png", "/chrono3.png", "/chorono4.png"],
+    tags: ["AI", "Web", "Agent"]
+  },
+  {
     id: 1,
     year: "2025",
     url: "https://www.hearsay.ink/",
@@ -116,7 +123,7 @@ export const Projects: React.FC = () => {
                   <div className="font-sans text-xl md:text-2xl font-medium leading-tight">
                     {project.title}
                   </div>
-                  <p className="font-mono text-xs mt-4 max-w-xs opacity-60">
+                  <p className="font-mono text-xs mt-4 max-w-md opacity-60">
                     {project.description}
                   </p>
                   <div className="flex gap-2 mt-3">

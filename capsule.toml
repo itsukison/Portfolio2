@@ -2,8 +2,8 @@ schema_version = "0.3"
 name = "portfolio2"
 version = "0.1.0"
 type = "app"
-runtime = "web/static"
-run = "dist"
-port = 5173
+runtime = "web/node"
+run = "npm run dev"
+port = 3000
 
-buid = "npm install && npm run build"
+buid = "npm install"

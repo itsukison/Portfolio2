@@ -4,6 +4,6 @@ version = "0.1.0"
 type = "app"
 runtime = "web/static"
 run = "dist"
-port = "5173"
+port = 5173
 
 buid = "npm install && npm run build"

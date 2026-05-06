@@ -1,0 +1,9 @@
+schema_version = "0.3"
+name = "portfolio2"
+version = "0.1.0"
+type = "app"
+runtime = "web/static"
+run = "dist"
+port = "5173"
+
+buid = "npm install && npm run build"

@@ -6,4 +6,4 @@ runtime = "web/node"
 run = "npm run dev"
 port = 3000
 
-buid = "npm install"
+build = "npm install"

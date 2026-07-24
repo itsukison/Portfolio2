@@ -95,14 +95,14 @@ const translations: Record<Language, Translations> = {
                     description: 'Bridging context, workflows, and execution. An intelligence that understands your company\'s deepest context to delegate tasks autonomously.',
                 },
                 {
-                    name: 'Hearsay',
-                    title: 'Social Network Mobile App',
-                    description: 'The exclusive social network that ends at 50 feet. No influencers. Just the chaos around you.',
+                    name: 'Core7',
+                    title: 'Enterprise AI & Product Studio',
+                    description: 'The company site for Core7, Inc.—my studio building internal AI tools and bespoke software for enterprise teams, alongside products of our own such as Keigo Button, now at 5,000+ downloads.',
                 },
                 {
-                    name: 'Flowly',
-                    title: 'CRM Lead Management',
-                    description: 'Modern CRM solution designed to automate data enrichment and lead management.',
+                    name: 'Studio On',
+                    title: 'Tokyo Photography Agency',
+                    description: 'A photo agency creating cinematic shoots for travelers in Japan, grown to 300K+ views across TikTok and Instagram and more than ¥500K in monthly revenue.',
                 },
                 {
                     name: 'Cueme',
@@ -173,14 +173,14 @@ const translations: Record<Language, Translations> = {
                     description: 'コンテキスト、ワークフロー、実行の架け橋。会社の深いコンテキストを理解し、自律的にタスクを処理するAI従業員。',
                 },
                 {
-                    name: 'Hearsay',
-                    title: 'SNSモバイルアプリ',
-                    description: '半径15メートルで完結するSNS。インフルエンサーなし。あるのは、あなたの周りの出来事だけ。',
+                    name: 'Core7',
+                    title: 'エンタープライズAI＆プロダクトスタジオ',
+                    description: 'Core7, Inc.のコーポレートサイト。企業向けの社内AIツールや業務システムを開発する一方、自社プロダクトも展開。「敬語ボタン」は累計5,000ダウンロードを突破。',
                 },
                 {
-                    name: 'Flowly',
-                    title: 'CRMリード管理',
-                    description: 'データエンリッチメントとリード管理を自動化する、現代的なCRMソリューション。',
+                    name: 'Studio On',
+                    title: '東京発フォトエージェンシー',
+                    description: '訪日旅行者の旅をシネマティックに残すフォトエージェンシー。TikTok・Instagramで累計30万回以上再生、月商50万円超まで成長。',
                 },
                 {
                     name: 'Cueme',

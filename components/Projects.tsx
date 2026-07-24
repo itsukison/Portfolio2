@@ -24,21 +24,21 @@ const baseProjects = [
   },
   {
     id: 1,
-    year: "2025",
-    url: "https://www.hearsay.ink/",
-    images: ["/hearsay1.png", "/hearsay2.png", "/hearsay3.png", "/hearsay4.png"],
-    tags: ["Social", "Mobile", "React Native"]
+    year: "2026",
+    url: "https://core7-jp.com/",
+    images: ["/core7-1.png", "/core7-2.png", "/core7-3.png", "/core7-4.png"],
+    tags: ["Enterprise AI", "Studio", "Products"]
   },
   {
     id: 2,
-    year: "2025",
-    url: "https://crm-five-lyart.vercel.app/",
-    images: ["/flowly.png", "/flowly2.png", "/flowly3.png", "/flowly4.png"],
-    tags: ["CRM", "Web", "Next.js"]
+    year: "2026",
+    url: "https://studio-on.org/",
+    images: ["/1.png", "/2.png", "/3.png", "/4.png"],
+    tags: ["Photography", "Travel", "Growth"]
   },
   {
     id: 3,
-    year: "2024",
+    year: "2025",
     url: "https://www.cueme.ink/",
     images: ["/cueme1.png", "/cueme2.png", "/cueme3.png"],
     tags: ["AI", "Web", "Next.js"]
